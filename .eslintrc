@@ -1,0 +1,20 @@
+
+{
+    "extends": "standard",
+    "env": {
+      "node": true
+    },
+    "plugins": [
+        "standard",
+        "promise"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "script"
+    },
+    "rules": {
+      "no-return-assign": 0,
+      "semi": [ 1, "always" ],
+      "strict": [ 2, "safe" ]
+    }
+}

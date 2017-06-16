@@ -1,0 +1,30 @@
+# Node files
+node_modules
+
+# Debug logs
+*.log*
+
+#.env files
+*.env*
+
+#google secret
+**/client_secret.json
+**/gmail-nodejs-quickstart.json
+
+# Mac trash
+DS_STORE
+
+# Yarn versioning
+yarn.lock
+
+# Istanbul reports
+coverage
+.nyc_output
+
+# Production build
+dist
+
+# Assets
+assets
+
+*.zip

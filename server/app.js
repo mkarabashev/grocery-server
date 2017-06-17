@@ -8,6 +8,8 @@ const compression = require('compression');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 
+const auth = require('./routes/auth');
+
 module.exports = function setupServer () {
   // initialize express
   const app = express();
@@ -17,6 +19,7 @@ module.exports = function setupServer () {
   app.use(logger('tiny'));
 
   // load the schema
+  require('./models/user');
 
   // security
   app.use(helmet());
@@ -32,6 +35,30 @@ module.exports = function setupServer () {
   }));
 
   //  provide API
+  auth(app);
+
+  // error handling
+  // development error handler
+  // will print stacktrace
+  if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+      res.status(err.status || 500);
+      res.json({
+        message: err.message,
+        error: err
+      });
+    });
+  }
+
+  // production error handler
+  // no stacktraces leaked to user
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.json({
+      message: err.message,
+      error: {}
+    });
+  });  
 
   return app;
 };

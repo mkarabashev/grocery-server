@@ -1,6 +1,6 @@
 {
   "author": "Maxim Karabashev",
-  "liscence": "MIT",
+  "license": "MIT",
   "main": "cluster.js",
   "scripts": {
     "lint": "eslint .",

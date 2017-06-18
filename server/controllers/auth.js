@@ -26,7 +26,7 @@ exports.register = function register(req, res, next) {
 exports.login = function login(req, res, next) {
   const { username } = req.body;
 
-  User.findOne({ username }).exec()
+  User.findOne({ username }).populate('lists').exec()
     .then(account => account
       ? res.status(200).json(account)
       : Promise.reject({

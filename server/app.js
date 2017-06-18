@@ -9,6 +9,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 
 const auth = require('./routes/auth');
+const groceries = require('./routes/groceries');
 
 module.exports = function setupServer () {
   // initialize express
@@ -20,6 +21,7 @@ module.exports = function setupServer () {
 
   // load the schema
   require('./models/user');
+  require('./models/list');
 
   // security
   app.use(helmet());
@@ -36,6 +38,7 @@ module.exports = function setupServer () {
 
   //  provide API
   auth(app);
+  groceries(app);
 
   // error handling
   // development error handler
@@ -58,7 +61,7 @@ module.exports = function setupServer () {
       message: err.message,
       error: {}
     });
-  });  
+  });
 
   return app;
 };

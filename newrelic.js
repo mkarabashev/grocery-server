@@ -10,7 +10,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['stockapp-server'],
+  app_name: ['grocery-server'],
   /**
    * Your New Relic license key.
    */

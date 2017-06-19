@@ -1,4 +1,5 @@
 {
+  "name": "grocery-server",
   "author": "Maxim Karabashev",
   "license": "MIT",
   "main": "cluster.js",

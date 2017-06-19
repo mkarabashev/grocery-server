@@ -25,12 +25,12 @@ exports.addItem = function addItem(req, res, next) {
 };
 
 exports.completeItem = function completeItem(req, res, next) {
-  const { username, listId, itemId } = req.body;
+  const { username, listId, itemId, completed } = req.body;
 
   userHasList(username, listId)
     .then(() => List.findOneAndUpdate(
       { _id: listId, 'items._id': itemId },
-      { $set: { 'items.$.completed': true } },
+      { $set: { 'items.$.completed': completed } },
       { new: true }
     ).exec())
     .then(result => result || Promise.reject(new Error({

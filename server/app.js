@@ -28,7 +28,9 @@ module.exports = function setupServer () {
   app.use(mongoSanitize());
 
   // server traffic
-  app.use(cors());
+  app.use(cors({
+    origin: process.env.ORIGIN
+  }));
 
   app.use(compression({
     filter: (req, res) => req.headers['x-no-compression']

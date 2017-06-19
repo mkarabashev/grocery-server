@@ -42,6 +42,9 @@ module.exports = function setupServer () {
   auth(app);
   groceries(app);
 
+  // a json that explains the purpose of the server
+  app.get('/', (req, res) => res.json({ msg: "grocery app api"}));
+
   // error handling
   // development error handler
   // will print stacktrace

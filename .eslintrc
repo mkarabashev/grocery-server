@@ -13,6 +13,7 @@
       "sourceType": "script"
     },
     "rules": {
+      "space-before-function-paren": 0,
       "no-return-assign": 0,
       "semi": [ 1, "always" ],
       "strict": [ 2, "safe" ]

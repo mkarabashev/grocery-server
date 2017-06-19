@@ -1,15 +1,20 @@
+'use strict';
+
 const Router = require('express').Router;
 
 const {
-  createList,
-  deleteList,
-  getList,
-  changeListName,
   addItem,
   completeItem,
   removeItem,
   editItem
 } = require('../controllers/groceries');
+
+const {
+  createList,
+  deleteList,
+  getList,
+  changeListName
+} = require('../controllers/shoppingList');
 
 module.exports = function groceryRoutes(app) {
   const routes = Router();

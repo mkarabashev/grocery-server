@@ -1,3 +1,5 @@
+'use strict';
+
 const Router = require('express').Router;
 const { login, register } = require('../controllers/auth');
 
